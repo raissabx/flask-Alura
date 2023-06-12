@@ -21,7 +21,7 @@ def index():
 def cadastro():
     return render_template('cadastro.html', titulo='Cadastro de novo jogo')
 
-@app.route('/criar', methods=['POST'])
+@app.route('/criar', methods=['POST',])
 def criar():
     nome = request.form['nome']
     categoria = request.form['categoria']
@@ -29,5 +29,9 @@ def criar():
     jogo = Jogo(nome, categoria, console)
     lista.append(jogo)
     return redirect('/')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 app.run(debug=True)
